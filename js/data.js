@@ -1,4 +1,4 @@
-const U=(id,w=800)=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
+const U=id=>`assets/images/${id}.webp`;
 const destinations=[
 {city:"Bali",country:"Indonesia",cat:"Beach",hotels:48,from:95,img:"photo-1537996194471-e657df975ab4",tag:"Temples, rice terraces & surf"},
 {city:"Paris",country:"France",cat:"City",hotels:120,from:180,img:"photo-1502602898657-3e91760cbb34",tag:"Art, cafés & the Eiffel Tower"},
