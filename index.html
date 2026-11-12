@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stackly Travel – Book Hotels & Destinations Worldwide</title>
+<meta name="description" content="Discover destinations, compare hotels and book your next trip with Stackly Travel.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+<link rel="shortcut icon" href="assets/images/favicon.ico">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="preloader">
+  <div class="pl-box">
+    <img src="assets/images/logo.webp" alt="Stackly" class="pl-logo">
+    <div class="sky" aria-hidden="true">
+      <i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i>
+      <div class="plane">
+        <span class="trail"></span>
+        <svg viewBox="0 0 125 52" class="plane-svg">
+          <path d="M14 20 L6 3 L24 3 L34 18Z" fill="#1f4e79"/>
+          <path d="M52 18 L44 6 L62 6 L74 18Z" fill="#3bb494"/>
+          <path d="M10 26 Q10 18 26 18 L92 18 Q116 20 121 26 Q116 32 92 33 L26 33 Q10 33 10 26Z" fill="#ff6b35"/>
+          <path d="M10 26 Q10 20 24 19 L24 33 Q10 33 10 26Z" fill="#e5521d"/>
+          <path d="M98 20 Q112 21 118 26 L98 26Z" fill="#bfe6ff"/>
+          <path d="M50 29 L38 48 L62 48 L80 29Z" fill="#5fcfb0"/>
+          <ellipse cx="58" cy="41" rx="8" ry="3.6" fill="#1f4e79"/>
+          <g fill="#fff"><circle cx="34" cy="25" r="2.6"/><circle cx="44" cy="25" r="2.6"/><circle cx="54" cy="25" r="2.6"/><circle cx="64" cy="25" r="2.6"/><circle cx="74" cy="25" r="2.6"/><circle cx="84" cy="25" r="2.6"/></g>
+          <rect x="14" y="27.5" width="84" height="2" fill="#ffd166"/>
+        </svg>
+      </div>
+    </div>
+    <div class="pl-bar"><span id="plFill"></span></div>
+    <p class="pl-text">Packing your bags<span id="plPct">0%</span></p>
+  </div>
+</div>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#home" class="brand"><img src="assets/images/logo.webp" alt="Stackly logo"></a>
+    <nav id="menu">
+      <a href="#home">Home</a><a href="#destinations">Destinations</a><a href="#hotels">Hotels</a>
+      <a href="#offers">Offers</a><a href="#estimate">Estimate</a><a href="#why">Why Us</a>
+      <a href="#testimonials">Reviews</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <button class="wish-btn" id="wishNav" title="Wishlist">♥ <b id="wishCount">0</b></button>
+      <a href="#estimate" class="btn btn-sm">Book Now</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="container hero-in">
+    <span class="tag" data-aos="fade-down">✈ Over 2 million happy travellers</span>
+    <h1>Discover your next<br><span class="typed" id="typed"></span><span class="caret">|</span></h1>
+    <p data-aos="fade-up" data-aos-delay="200">Handpicked hotels, unforgettable destinations and honest prices – all in one stack.</p>
+    <form class="search" id="searchForm" novalidate data-aos="zoom-in" data-aos-delay="300">
+      <label>Destination<input list="cities" id="sDest" placeholder="Where to?" autocomplete="off"></label>
+      <datalist id="cities"></datalist>
+      <label>Check-in<input type="date" id="sIn"></label>
+      <label>Check-out<input type="date" id="sOut"></label>
+      <label>Guests<select id="sGuests"></select></label>
+      <label>Rooms<select id="sRooms"></select></label>
+      <button class="btn" type="submit">Search</button>
+      <p class="err" id="searchErr" role="alert"></p>
+    </form>
+    <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+      <div><b data-count="120">0</b>+<small>Countries</small></div>
+      <div><b data-count="35000">0</b>+<small>Hotels</small></div>
+      <div><b data-count="2">0</b>M+<small>Travellers</small></div>
+      <div><b data-count="4.8" data-dec="1">0</b>★<small>Avg. rating</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="strip"><div class="container strip-in">
+  <span>✔ Free cancellation</span><span>✔ Best price guarantee</span><span>✔ 24/7 human support</span><span>✔ Secure payments</span><span>✔ No hidden fees</span>
+</div></section>
+
+<!-- DESTINATIONS -->
+<section class="sec" id="destinations"><div class="container">
+  <div class="head">
+    <small data-aos="fade-up">Explore the world</small>
+    <h2 data-anim="chars">Popular Destinations</h2>
+    <p data-aos="fade-up">From sun-soaked islands to buzzing cities – pick a vibe and we'll take care of the rest.</p>
+  </div>
+  <div class="chips" id="destChips" data-aos="fade-up"></div>
+  <div class="grid dest-grid" id="destGrid"></div>
+  <p class="empty" id="destEmpty" hidden>No destinations match your search.</p>
+</div></section>
+
+<!-- HOTELS -->
+<section class="sec alt" id="hotels"><div class="container">
+  <div class="head">
+    <small data-aos="fade-up">Stay in style</small>
+    <h2 data-anim="words">Featured Hotels Loved by Guests</h2>
+    <p data-aos="fade-up">Filter by price and rating, sort your way and save favourites to your wishlist.</p>
+  </div>
+  <div class="filters" data-aos="fade-up">
+    <label>Max price: <b id="priceOut">$600</b>/night<input type="range" id="fPrice" min="80" max="600" step="10" value="600"></label>
+    <label>Min rating<select id="fRating"><option value="0">Any</option><option value="4">4.0+</option><option value="4.5">4.5+</option><option value="4.8">4.8+</option></select></label>
+    <label>Sort by<select id="fSort"><option value="pop">Most popular</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="rate">Top rated</option></select></label>
+    <button class="btn btn-ghost" id="fWish">♥ Wishlist only</button>
+    <button class="btn btn-ghost" id="fReset">Reset</button>
+  </div>
+  <p class="result-info" id="hotelInfo"></p>
+  <div class="grid hotel-grid" id="hotelGrid"></div>
+  <p class="empty" id="hotelEmpty" hidden>No hotels match these filters. Try widening your search.</p>
+</div></section>
+
+<!-- OFFERS -->
+<section class="sec offers" id="offers"><div class="container">
+  <div class="head light">
+    <small data-aos="fade-up">Limited time</small>
+    <h2 data-anim="blur">Special Offers & Coupons</h2>
+    <p data-aos="fade-up">Copy a code, apply it in the estimator below and watch the total drop.</p>
+  </div>
+  <div class="grid offer-grid" id="offerGrid"></div>
+</div></section>
+
+<!-- ESTIMATOR -->
+<section class="sec" id="estimate"><div class="container est">
+  <div class="est-text" data-aos="fade-right">
+    <small>Plan smarter</small>
+    <h2 data-anim="flip">Instant Booking Estimate</h2>
+    <p>Pick a hotel, set your dates and see a transparent price breakdown with taxes and discounts before you commit.</p>
+    <ul class="ticks"><li>Live price updates as you type</li><li>12% taxes & fees shown upfront</li><li>Stack coupon codes from the offers above</li></ul>
+  </div>
+  <div class="est-card" data-aos="fade-left">
+    <label>Hotel<select id="eHotel"></select></label>
+    <div class="two"><label>Check-in<input type="date" id="eIn"></label><label>Check-out<input type="date" id="eOut"></label></div>
+    <div class="two"><label>Rooms<select id="eRooms"></select></label><label>Guests<select id="eGuests"></select></label></div>
+    <label>Coupon code<div class="coup"><input id="eCode" placeholder="e.g. STACK20"><button class="btn btn-sm" id="eApply" type="button">Apply</button></div></label>
+    <p class="err" id="eMsg"></p>
+    <div class="bill" id="bill"></div>
+  </div>
+</div></section>
+
+<!-- WHY -->
+<section class="sec alt" id="why"><div class="container">
+  <div class="head">
+    <small data-aos="fade-up">Why Stackly</small>
+    <h2 data-anim="wave">Why Choose Us</h2>
+    <p data-aos="fade-up">We obsess over the details so your only job is to enjoy the trip.</p>
+  </div>
+  <div class="grid why-grid" id="whyGrid"></div>
+  <div class="steps-wrap" id="stepsWrap">
+    <span class="path-line jx"></span>
+    <div class="walker jx" id="walker" aria-hidden="true">
+      <svg viewBox="0 0 34 54">
+        <rect x="5" y="17" width="9" height="16" rx="3" fill="#ff6b35"/>
+        <g class="arm a2" style="transform-origin:17px 19px"><rect x="15.5" y="18" width="4" height="14" rx="2" fill="#d9a97c"/></g>
+        <g class="leg l2" style="transform-origin:17px 33px"><rect x="14.5" y="33" width="5" height="16" rx="2.5" fill="#0f2b47"/><rect x="14.5" y="48" width="9" height="4" rx="2" fill="#fff"/></g>
+        <rect x="11" y="15" width="12" height="20" rx="5" fill="#1f4e79"/>
+        <g class="leg l1" style="transform-origin:17px 33px"><rect x="14.5" y="33" width="5" height="16" rx="2.5" fill="#17395a"/><rect x="14.5" y="48" width="9" height="4" rx="2" fill="#fff"/></g>
+        <circle cx="17" cy="9" r="6.5" fill="#f2c9a0"/><path d="M10 8 Q17 -2 24 8Z" fill="#5fcfb0"/><rect x="20" y="6.5" width="8" height="2.4" rx="1.2" fill="#3bb494"/><circle cx="21" cy="10" r="1" fill="#222"/>
+        <g class="arm a1" style="transform-origin:17px 19px"><rect x="15.5" y="18" width="4" height="14" rx="2" fill="#f2c9a0"/></g>
+      </svg>
+    </div>
+    <div class="jplane jx" id="jplane" aria-hidden="true"><span class="trail"></span><svg viewBox="0 0 125 52" class="plane-svg"><path d="M14 20 L6 3 L24 3 L34 18Z" fill="#1f4e79"/><path d="M52 18 L44 6 L62 6 L74 18Z" fill="#3bb494"/><path d="M10 26 Q10 18 26 18 L92 18 Q116 20 121 26 Q116 32 92 33 L26 33 Q10 33 10 26Z" fill="#ff6b35"/><path d="M98 20 Q112 21 118 26 L98 26Z" fill="#bfe6ff"/><path d="M50 29 L38 48 L62 48 L80 29Z" fill="#5fcfb0"/><ellipse cx="58" cy="41" rx="8" ry="3.6" fill="#1f4e79"/><g fill="#fff"><circle cx="34" cy="25" r="2.6"/><circle cx="46" cy="25" r="2.6"/><circle cx="58" cy="25" r="2.6"/><circle cx="70" cy="25" r="2.6"/><circle cx="82" cy="25" r="2.6"/></g></svg></div>
+    <div class="steps" id="steps"></div>
+  </div>
+</div></section>
+
+<!-- TESTIMONIALS -->
+<section class="sec testi" id="testimonials"><div class="container">
+  <div class="head light">
+    <small data-aos="fade-up">Real stories</small>
+    <h2 data-anim="slide">What Travellers Say</h2>
+    <p data-aos="fade-up">Rated 4.8 / 5 from more than 48,000 verified stays.</p>
+  </div>
+  <div class="slider" data-aos="zoom-in">
+    <button class="arr" id="tPrev" aria-label="Previous">‹</button>
+    <div class="track-wrap"><div class="track" id="tTrack"></div></div>
+    <button class="arr" id="tNext" aria-label="Next">›</button>
+  </div>
+  <div class="dots" id="tDots"></div>
+</div></section>
+
+<!-- FAQ -->
+<section class="sec" id="faq"><div class="container narrow">
+  <div class="head">
+    <small data-aos="fade-up">Good to know</small>
+    <h2 data-anim="chars">Frequently Asked Questions</h2>
+  </div>
+  <div id="faqList"></div>
+</div></section>
+
+<!-- NEWSLETTER -->
+<section class="news" id="newsletter"><div class="container news-in">
+  <h2 data-anim="words">Get Travel Deals in Your Inbox</h2>
+  <p data-aos="fade-up">Join 120,000+ explorers. Weekly hand-picked deals, zero spam.</p>
+  <form id="newsForm" novalidate data-aos="fade-up">
+    <input type="email" id="nEmail" placeholder="you@example.com" aria-label="Email">
+    <button class="btn" type="submit">Subscribe</button>
+  </form>
+  <p class="msg" id="nMsg"></p>
+</div></section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div><img src="assets/images/logo.webp" alt="Stackly" class="flogo"><p>Stackly Travel makes booking simple, transparent and a little bit magical.</p>
+      <div class="soc"><a href="#">f</a><a href="#">in</a><a href="#">𝕏</a><a href="#">▶</a></div></div>
+    <div><h4>Explore</h4><a href="#destinations">Destinations</a><a href="#hotels">Hotels</a><a href="#offers">Offers</a><a href="#estimate">Estimate</a></div>
+    <div><h4>Company</h4><a href="#why">Why Stackly</a><a href="#testimonials">Reviews</a><a href="#faq">FAQ</a><a href="#" class="open-privacy">Privacy Policy</a></div>
+    <div><h4>Contact</h4>
+      <address>📍 <b>Evolve Studio</b>, 4th Floor,<br>Khata No 10, Begur - Koppa Rd,<br>in front of SNN Raj Serenity,<br>Suraksha Nagar, Yelenahalli, Begur,<br>Bengaluru, Karnataka - 560068</address>
+      <a href="mailto:support@stackly.travel">✉ support@stackly.travel</a><a href="tel:+918040001234">☎ +91 80 4000 1234</a></div>
+  </div>
+  <div class="road" aria-hidden="true">
+    <div class="bus">
+      <svg viewBox="0 0 230 96" class="bus-svg">
+        <rect x="6" y="8" width="214" height="62" rx="14" fill="#ffb703"/>
+        <rect x="6" y="40" width="214" height="22" fill="#1f4e79"/>
+        <text x="113" y="56" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="800" font-size="16" letter-spacing="5" fill="#fff">TRAVEL</text>
+        <g fill="#bfe6ff"><rect x="16" y="16" width="26" height="18" rx="4"/><rect x="48" y="16" width="26" height="18" rx="4"/><rect x="80" y="16" width="26" height="18" rx="4"/><rect x="112" y="16" width="26" height="18" rx="4"/><rect x="144" y="16" width="26" height="18" rx="4"/></g>
+        <path d="M180 16 H206 Q214 16 214 26 V34 H180Z" fill="#8fd3ff"/>
+        <rect x="6" y="62" width="214" height="8" fill="#e09f00"/>
+        <circle cx="216" cy="54" r="4" fill="#fff6b0"/>
+        <g class="wheel" style="transform-origin:55px 72px"><circle cx="55" cy="72" r="13" fill="#222"/><circle cx="55" cy="72" r="6" fill="#cfd8e3"/><path d="M55 62V82M45 72H65" stroke="#222" stroke-width="2"/></g>
+        <g class="wheel" style="transform-origin:170px 72px"><circle cx="170" cy="72" r="13" fill="#222"/><circle cx="170" cy="72" r="6" fill="#cfd8e3"/><path d="M170 62V82M160 72H180" stroke="#222" stroke-width="2"/></g>
+      </svg>
+    </div>
+    <span class="lane"></span>
+  </div>
+  <div class="copy">© <span id="yr"></span> Stackly Travel. All rights reserved. &nbsp;|&nbsp; <a href="#" class="open-privacy">Privacy Policy</a></div>
+</footer>
+
+<div class="modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="ppTitle" hidden>
+  <div class="modal-box">
+    <button class="modal-x" id="ppClose" aria-label="Close">×</button>
+    <h2 id="ppTitle">Privacy Policy</h2>
+    <small>Last updated: 12 November 2026</small>
+    <h3>1. Information we collect</h3>
+    <p>We collect only what you enter on this website: destination searches, travel dates, guest and room counts, your wishlist and the email address you use to subscribe to our newsletter.</p>
+    <h3>2. How we use it</h3>
+    <p>Your details are used to show relevant hotels, estimate booking prices, remember your favourites and send travel deals you have asked for. We never sell your personal data.</p>
+    <h3>3. Local storage</h3>
+    <p>Your wishlist and newsletter subscription are saved in your browser's LocalStorage on your own device. You can clear them any time from your browser settings.</p>
+    <h3>4. Cookies & third parties</h3>
+    <p>This page loads fonts, animation scripts and images from third-party providers (Google Fonts, unpkg and Unsplash), which may receive standard technical data such as your IP address.</p>
+    <h3>5. Data security</h3>
+    <p>We use reasonable technical and organisational measures to protect your information, but no online method is completely secure.</p>
+    <h3>6. Your rights</h3>
+    <p>You may ask to access, correct or delete your data, or unsubscribe from emails at any time by contacting us.</p>
+    <h3>7. Contact us</h3>
+    <p><b>Evolve Studio</b>, 4th Floor, Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka - 560068<br>Email: support@stackly.travel</p>
+    <button class="btn btn-sm" id="ppOk">I understand</button>
+  </div>
+</div>
+
+<button id="toTop" aria-label="Back to top">↑</button>
+<div id="toast"></div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
